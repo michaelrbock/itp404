@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rotten Tomatoes Search</title>
+    <style type="text/css">
+      body {
+        background-color: #F0F0F0;
+      }
+    </style>
+</head>
+
+<body>
+  <form action="">
+    <input type="text" id="search-term" placeholder="Movie Title">
+    <input type="submit" value="Search">
+  </form>
+
+  <div id="results"></div>
+
+  <script type="text/handlebars" id="movie-template">
+    <div class="movie">
+      <h3>{{title}}</h3>
+      <img src="{{posters.thumbnail}}" alt=""/>
+      <p>Audience Rating: {{ratings.audience_rating}}</p>
+      <p>Audience Score: {{ratings.audience_score}}</p>
+      Cast:
+      <ul>
+      {{#each abridged_cast}}
+        <li>{{name}}</li>
+      {{/each}}
+      </ul>
+      {{#if synopsis}}
+        <p>Synopsis: {{synopsis}}</p>
+      {{else}}
+        <p>No synopsis available.</p>
+      {{/if}}
+    </div>
+    <hr>
+  </script>
+
+  <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+  <script src="handlebars-v2.0.0.js"></script>
+  <script src="rt.js"></script>
+</body>
+</html>
