@@ -1,0 +1,130 @@
+<script>
+  var reviews = {};
+  reviews.restaurantA = [
+      {
+          title: '',
+          stars: 4,
+          cost: 2,
+          description: ''
+      },
+      {
+          title: '',
+          stars: 3,
+          cost: 1,
+          description: ''
+      },
+      {
+          title: '',
+          stars: 4,
+          cost: 3,
+          description: ''
+      },
+      {
+          title: '',
+          stars: 4,
+          cost: 3,
+          description: ''
+      },
+      {
+          title: '',
+          stars: 5,
+          cost: 2,
+          description: ''
+      },
+      {
+          title: '',
+          stars: 3,
+          cost: 2,
+          description: ''
+      }
+  ];
+  reviews.restaurantB = [
+      {
+          title: '',
+          stars: 5,
+          cost: 3,
+          description: ''
+      },
+      {
+          title: '',
+          stars: 3,
+          cost: 4,
+          description: ''
+      },
+      {
+          title: '',
+          stars: 4,
+          cost: 4,
+          description: ''
+      },
+      {
+          title: '',
+          stars: 5,
+          cost: 4,
+          description: ''
+      },
+      {
+          title: '',
+          stars: 2,
+          cost: 3,
+          description: ''
+      },
+      {
+          title: '',
+          stars: 5,
+          cost: 4,
+          description: ''
+      },
+      {
+          title: '',
+          stars: 5,
+          cost: 5,
+          description: ''
+      }
+  ];
+
+  var ReviewsReport = function(name, reviews) {
+    this.name = name;
+    this.reviews = reviews;
+
+    this.getAverageRating = function() {
+      total = 0;
+      for (var i = 0; i < this.reviews.length; i++) {
+        total += this.reviews[i].stars;
+      }
+      return (total / this.reviews.length);
+    };
+
+    this.getAverageCost = function() {
+      total = 0;
+      for (var i = 0; i < this.reviews.length; i++) {
+        total += this.reviews[i].cost;
+      }
+      return (total / this.reviews.length);
+    };
+
+    this.convertCostToDollarSign = function(cost) {
+      if (cost < 1.5) {
+        return '$';
+      } else if (cost >= 1.5 && cost < 2.5) {
+        return '$$';
+      } else if (cost >= 2.5 && cost < 3.5) {
+        return '$$$';
+      } else {
+        return '$$$$';
+      }
+    };
+
+    this.summarize = function() {
+      result = {};
+      result.name = this.name;
+      result.averageStarRating = this.getAverageRating();
+      result.totalReviews = this.reviews.length;
+      result.averageCost = {
+        numeric: this.getAverageCost(),
+        symbol: this.convertCostToDollarSign(this.getAverageCost())
+      };
+      return result;
+    }
+  }
+</script>
