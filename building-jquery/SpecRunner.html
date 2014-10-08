@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jasmine Spec Runner</title>
+
+  <link rel="stylesheet" href="framework/jasmine-1.2.0/jasmine.css">
+  <script src="framework/jasmine-1.2.0/jasmine.js"></script>
+  <script src="framework/jasmine-1.2.0/jasmine-html.js"></script>
+
+  <!-- include source file here... -->
+  <script src="src/my-jquery.js"></script>
+
+  <!-- include spec files here... -->
+  <script src="spec/my-jquery.spec.js"></script>
+
+  <script>
+    (function() {
+      var jasmineEnv = jasmine.getEnv();
+      jasmineEnv.updateInterval = 1000;
+
+      var htmlReporter = new jasmine.HtmlReporter();
+
+      jasmineEnv.addReporter(htmlReporter);
+
+      jasmineEnv.specFilter = function(spec) {
+        return htmlReporter.specFilter(spec);
+      };
+
+      var currentWindowOnload = window.onload;
+
+      window.onload = function() {
+        if (currentWindowOnload) {
+          currentWindowOnload();
+        }
+        execJasmine();
+      };
+
+      function execJasmine() {
+        jasmineEnv.execute();
+      }
+
+    })();
+  </script>
+</head>
+
+<body>
+
+<div id="container" style="display: none;"></div>
+
+<script type="template" id="fixture-template">
+  <div><a href="#">Box 1</a></div>
+  <div><a href="#">Box 2</a></div>
+  <div><a href="#">Box 3</a></div>
+  <a href="index.html" title="Home Page" id="home">Home</a>
+</script>
+
+</body>
+</html>
