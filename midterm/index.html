@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Midterm Project</title>
+
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA96yqUwnsv3roNKHZW8Vi6aJHZRNYXnl0"></script>
+</head>
+
+<body>
+  <h2 align="center">Disclosure Concerts</h2>
+  <div id="overall">
+    <div id="map-canvas"></div>
+    <div id="info-pane">
+      <script type="text/handlebars" id="event-template">
+        <div class="event">
+          <img src="{{image.medium.url}}">
+          <h3><a href="{{url}}">{{title}}</a></h3>
+          <p class="event-description">
+            {{#if description}}
+              {{{description}}}
+            {{else}}
+              Description not available
+            {{/if}}
+          </p>
+          <b>{{venue_name}}</b>: {{venue_address}}
+          {{city_name}}, {{country_name}}
+        </div>
+      </script>
+    </div> <!-- info-pane -->
+  </div> <!-- overall -->
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="handlebars-v2.0.0.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
+

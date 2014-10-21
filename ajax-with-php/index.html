@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AJAX with PHP and JSON</title>
+</head>
+
+<!-- For USC disclaimer -->
+<style>
+  body {
+    font-family: font-family: Arial, Helvetica, sans-serif;
+  }
+  div {
+    overflow: visible;
+    font-size:0px !important;
+  }
+  #error {
+    font-size: 16px !important;
+    color: red;
+  }
+</style>
+
+<body>
+
+  <h4>Type the name of a car make (e.g. Honda) to see its 2014 models</h4>
+
+  <form action="" id="makes">
+    <input type="text" id="make" placeholder="Make">
+    <input type="submit">
+  </form>
+  <div id="error"></div>
+
+  <h4>Models:</h4>
+  <ul id="results">
+    <script type="text/handlebars" id="model-template">
+      <li class="model">
+        <a href="http://www.edmunds.com/{{make}}/{{data.niceName}}/2014/">{{data.name}}</a>
+      </li>
+    </script>
+  <ul>
+
+  <br>
+  <img src="./300_horizontal_color.png">
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="handlebars-v2.0.0.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
+
