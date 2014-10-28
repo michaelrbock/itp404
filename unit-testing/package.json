@@ -1,0 +1,14 @@
+{
+  "name": "PROJECT-NAME",
+  "description": "PROJECT-DESCRIPTION",
+  "dependencies": {
+    "karma": "~0.12.16",
+    "karma-jasmine": "^0.1.5",
+    "karma-phantomjs-launcher": "~0.1.4"
+  },
+  "main": "karma.conf.js",
+  "scripts": {
+    "test": "./node_modules/karma/bin/karma start --single-run --browsers PhantomJS"
+  },
+  "author": "YOUR-NAME"
+}
